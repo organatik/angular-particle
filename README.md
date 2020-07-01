@@ -1,27 +1,110 @@
 # AngularParticle
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.21.
+Simple Implementation angular wrapper for ParticleJs.Work with Angular9
 
-## Development server
+## Installation
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+To install this library, first run:
 
-## Code scaffolding
+```bash
+$ npm install particle.js --save
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```bash
+$ npm install angular-particle --save
+```
 
-## Build
+Then configure path to Particle.js in your ```angular.json ``` :
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+```
+            "scripts": [
+               ...
+              "./node_modules/particles.js/particles.js"
+            ]
+```
 
-## Running unit tests
+## How to use
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```typescript
+// Import ParticlesModule
+import { AppRoutingModule } from './app-routing.module'; 
 
-## Running end-to-end tests
+@NgModule({
+  declarations: [
+    ...
+  ],
+  imports: [
+	...
+    AppRoutingModule
+  ],
+  providers: [],
+  bootstrap: []
+})
+export class AppModule { }
+```
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+And just use the component in your HTML
 
-## Further help
+```html
+<angular-particle-es [config]="config" [styles]="particleStyles"></angular-particle-es>
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Parameters configuration can be found [here](http://vincentgarreau.com/particles.js/). If you don't provide any parameters, it will be error.
+
+
+## Properties
+
+| Property | Type   | Definition                              |
+| -------- | ------ | --------------------------------------- |
+| params   | object | The parameters for particle.js          |
+| style    | object | The style of the canvas container       |
+
+
+
+## Example
+
+```typescript
+
+@Component({
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.css']
+})
+export class AppComponent implements OnInit {
+    myStyle: object = {};
+	myParams: object = {};
+	width: number = 100;
+	height: number = 100;
+
+    ngOnInit() {
+        this.myStyle = {
+            'position': 'fixed',
+            'width': '100%',
+            'height': '100%',
+            'z-index': -1,
+            'top': 0,
+            'left': 0,
+            'right': 0,
+            'bottom': 0,
+        };
+
+	this.myParams = {
+            particles: {
+                number: {
+                    value: 200,
+                },
+                color: {
+                    value: '#ff0000'
+                },
+                shape: {
+                    type: 'triangle',
+                },
+	    }
+	};
+    }
+}
+```
+
+```html
+<angular-particle-es [config]="myParams" [styles]="myStyle"></angular-particle-es>
+```
