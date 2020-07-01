@@ -1,0 +1,22 @@
+{
+  "name": "angular-particle-es",
+  "version": "0.0.7",
+  "description": "This is a simple wrapper on Particle.js work with Angular9+",
+  "keywords": [
+    "Angular",
+    "Library",
+    "particle",
+    "particlejs",
+    "angular"
+  ],
+  "peerDependencies": {
+    "@angular/common": "^8.2.14",
+    "@angular/core": "^8.2.14",
+    "particles.js": "^2.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/organatik/angular-particle"
+  },
+  "author": "organatik@gmail.com"
+}
