@@ -27,7 +27,7 @@ Then configure path to Particle.js in your ```angular.json ``` :
 
 ```typescript
 // Import ParticlesModule
-import { AppRoutingModule } from './app-routing.module'; 
+import { AngularParticleEsModule } from './app-routing.module'; 
 
 @NgModule({
   declarations: [
@@ -35,7 +35,7 @@ import { AppRoutingModule } from './app-routing.module';
   ],
   imports: [
 	...
-    AppRoutingModule
+    AngularParticleEsModule
   ],
   providers: [],
   bootstrap: []
